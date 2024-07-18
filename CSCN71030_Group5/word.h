@@ -1,6 +1,8 @@
 #pragma once
 #include "character.h"
 #include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 #define WORD_LENGTH 5
 
 typedef struct word{
@@ -8,6 +10,8 @@ typedef struct word{
 	bool isGuessed;
 }WORD;
 
-void setGuessed(WORD*);
+void printWords(WORD* word);
+
+void setGuessed(WORD* word);
 
 bool isWordGuessed(WORD, char*);
