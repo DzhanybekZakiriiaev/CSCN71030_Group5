@@ -1,8 +1,6 @@
 #include "character.h"
-
-void setGuessed(CHARACTER* character) {
-    character->isGuessed = true;
-}
+#include "stdio.h"
+#include <string.h>
 
 bool isGuessed(CHARACTER character, char content) {
     return tolower(character.content) == tolower(content);

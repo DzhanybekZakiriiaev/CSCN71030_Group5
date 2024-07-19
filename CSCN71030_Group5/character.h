@@ -4,9 +4,9 @@
 typedef struct character {
 	char content;
 	bool isGuessed;
+	bool isPositioned;
 }CHARACTER;
 
-void setGuessed(CHARACTER*);
 
 bool isGuessed(CHARACTER, char);
 
