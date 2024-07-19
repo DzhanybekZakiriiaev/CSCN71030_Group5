@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 # include "menu.h"
 
@@ -12,7 +13,8 @@ void displayWelcomeMessage() {
 void displayMenu() {
     printf("1. Start New Game\n");
     printf("2. View Instructions\n");
-    printf("3. View Battle pass\n");
+    printf("3. View Played Words\n");
+    printf("4. Add Custom Words\n");
     printf("4. Exit\n");
 }
 
