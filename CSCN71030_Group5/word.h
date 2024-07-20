@@ -15,3 +15,5 @@ void printWords(WORD* word);
 void setGuessed(WORD* word);
 
 bool isWordGuessed(WORD, char*);
+
+void printAnswer(char* answer);

@@ -8,7 +8,8 @@
 int roundGame(char* answer) {
     WORD words[GUESSES];
     initWords(words);
-
+    printf("\033[H\033[2J");
+    printWords(words);
     for (int i = 0; i < GUESSES; i++) {
         char* input = getValidStringInput("", WORD_LENGTH + 1);
         bool matched[WORD_LENGTH] = { false };
@@ -53,7 +54,7 @@ int roundGame(char* answer) {
             return 1;
         }
     }
-
+    printAnswer(answer);
     printf("Better luck next time!\n");
     return 0;
 }

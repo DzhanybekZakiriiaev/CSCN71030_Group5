@@ -1,5 +1,5 @@
 #include "input.h"
-
+#include <string.h>
 
 char* getValidStringInput(char* prompt, int maxLength) {
     printf("%s", prompt);
@@ -16,7 +16,7 @@ char* getValidStringInput(char* prompt, int maxLength) {
     else {
         while (getchar() != '\n');
     }
-    return stringArray;
+    return _strupr(stringArray);
 }
 
 int getValidInt(char* prompt, int minValue, int maxValue) {

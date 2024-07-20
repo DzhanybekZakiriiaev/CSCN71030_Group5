@@ -37,3 +37,13 @@ void printWords(WORD* words) {
         printf("|\n");
     }
 }
+
+void printAnswer(char* answer) {
+    printf("_________________________________________________________________________________\n");
+    for (int i = 0; i < WORD_LENGTH; i++) {
+        printf("|");
+        printf(GREEN "\t%c\t" RESET, answer[i]);
+    }
+    printf("|\n");
+}
+
