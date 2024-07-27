@@ -7,3 +7,5 @@
 int roundGame(char* word);
 
 void initWords(WORD* words);
+
+void check(char* answer, WORD* word);

@@ -12,40 +12,14 @@ int roundGame(char* answer) {
     printWords(words);
     for (int i = 0; i < GUESSES; i++) {
         char* input = getValidStringInput("", WORD_LENGTH + 1);
-        bool matched[WORD_LENGTH] = { false };
         for (int j = 0; j < WORD_LENGTH; j++) {
             words[i].characters[j].content = input[j];
             words[i].characters[j].isGuessed = false;
             words[i].characters[j].isPositioned = false;
         }
-        for (int j = 0; j < WORD_LENGTH; j++) {
-            if (words[i].characters[j].content == answer[j]) {
-                words[i].characters[j].isGuessed = true;
-                words[i].characters[j].isPositioned = true;
-                matched[j] = true;
-            }
-        }
-        for (int j = 0; j < WORD_LENGTH; j++) {
-            if (!words[i].characters[j].isPositioned) {
-                for (int k = 0; k < WORD_LENGTH; k++) {
-                    if (!matched[k] && words[i].characters[j].content == answer[k]) {
-                        words[i].characters[j].isGuessed = true;
-                        matched[k] = true;
-                        break;
-                    }
-                }
-            }
-        }
-        bool allPositioned = true;
-        for (int p = 0; p < WORD_LENGTH; p++) {
-            if (!words[i].characters[p].isPositioned) {
-                allPositioned = false;
-                break;
-            }
-        }
-        if (allPositioned) {
-            setGuessed(&words[i]);
-        }
+
+        check(answer, &words[i]);
+
         printf("\033[H\033[2J");
         printWords(words);
 
@@ -60,12 +34,50 @@ int roundGame(char* answer) {
 }
 
 void initWords(WORD* words) {
-	for (int i = 0; i < GUESSES; i++) {
-		for (int j = 0; j < WORD_LENGTH; j++) {
-			words[i].characters[j].content = ' ';
-			words[i].characters[j].isGuessed = false;
-			words[i].characters[j].isPositioned = false;
-		}
-		words[i].isGuessed = false;
-	}
+    for (int i = 0; i < GUESSES; i++) {
+        for (int j = 0; j < WORD_LENGTH; j++) {
+            words[i].characters[j].content = ' ';
+            words[i].characters[j].isGuessed = false;
+            words[i].characters[j].isPositioned = false;
+        }
+        words[i].isGuessed = false;
+    }
+}
+
+void check(char* answer, WORD* word) {
+    bool matched[WORD_LENGTH] = { false };
+
+    // Check for correct position
+    for (int j = 0; j < WORD_LENGTH; j++) {
+        if (word->characters[j].content == answer[j]) {
+            word->characters[j].isGuessed = true;
+            word->characters[j].isPositioned = true;
+            matched[j] = true;
+        }
+    }
+
+    // Check for correct letters in wrong position
+    for (int j = 0; j < WORD_LENGTH; j++) {
+        if (!word->characters[j].isPositioned) {
+            for (int k = 0; k < WORD_LENGTH; k++) {
+                if (!matched[k] && word->characters[j].content == answer[k]) {
+                    word->characters[j].isGuessed = true;
+                    matched[k] = true;
+                    break;
+                }
+            }
+        }
+    }
+
+    // Check if the whole word is correctly guessed
+    bool allPositioned = true;
+    for (int p = 0; p < WORD_LENGTH; p++) {
+        if (!word->characters[p].isPositioned) {
+            allPositioned = false;
+            break;
+        }
+    }
+    if (allPositioned) {
+        setGuessed(word);
+    }
 }
