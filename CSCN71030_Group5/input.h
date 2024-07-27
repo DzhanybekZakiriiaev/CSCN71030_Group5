@@ -7,4 +7,4 @@
 #define MAXSTRINGLENGTH 300
 
 char* getValidStringInput(char* prompt, int maxLength);
-
+int getValidInt(char* prompt, int minValue, int maxValue);

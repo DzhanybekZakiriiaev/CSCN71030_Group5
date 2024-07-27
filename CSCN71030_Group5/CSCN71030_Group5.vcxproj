@@ -136,7 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="character.h" />
-      <ClInclude Include="game.h" />
+    <ClInclude Include="game.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="word.h" />

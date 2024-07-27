@@ -1,6 +1,9 @@
-#include <stdio.h>
-//#include "menu.h"
 #include "game.h"
+#include "menu.h"
+#include "word.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 int main(void) {
     int choice;
@@ -32,6 +35,15 @@ int main(void) {
             break;
         }
     } while (choice != 5);
+
+ /*   // Ui test cases
+    test_UI_TestCase_001();
+    test_UI_TestCase_002();
+    test_UI_TestCase_003();
+    test_UI_TestCase_004();
+    test_UI_TestCase_005();
+
+*/
 
     return 0;
 }
