@@ -5,46 +5,42 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "filedata.h"
 
 
 
 int main(void) {
-    //int choice;
-    //displayWelcomeMessage();
+    int choice;
+    char* word = loadList(1);
+    int score = loadUser("max.txt");
+    printf("%d", score);
+    displayWelcomeMessage();
+    do {
+        displayMenu();
+        choice = getMenuChoice();
 
-    //wordle();
-    //do {
-    //    displayMenu();
-    //    choice = getMenuChoice();
-
-    //    switch (choice) {
-    //    case 1:
-    //        displayInstructions();
-    //        break;
-    //    case 2:
-    //        roundGame("ROUND");
-    //        break;
-    //    case 3:
-    //        viewPlayedWords();
-    //        break;
-    //    case 4:
-    //        addCustomWords();
-    //        break;
-    //    case 5:
-    //        printf("Exiting the game. Goodbye!\n");
-    //        break;
-    //    default:
-    //        printf("Invalid choice. Please try again.\n");
-    //        break;
-    //    }
-    //} while (choice != 5);
+        switch (choice) {
+        case 1:
+            displayInstructions();
+            break;
+        case 2:
+            roundGame(word);
+            break;
+        case 3:
+            printf("Exiting the game. Goodbye!\n");
+            break;
+        default:
+            printf("Invalid choice. Please try again.\n");
+            break;
+        }
+    } while (choice != 5);
 
     // Ui test cases
 
-    test_REQ_GM_001();
-    test_REQ_GM_002();
-    test_REQ_GM_003();
-    test_REQ_GM_004();
-    test_REQ_GM_005();
+    //test_REQ_GM_001();
+    //test_REQ_GM_002();
+    //test_REQ_GM_003();
+    //test_REQ_GM_004();
+    //test_REQ_GM_005();
     return 0;
 }

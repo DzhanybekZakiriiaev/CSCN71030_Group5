@@ -56,9 +56,7 @@ void displayMenu() {
     printf("\nPlease choose an option from the menu below\n");
     printf("1. View Instructions\n");
     printf("2. Start Game\n");
-    printf("3. View Played Words\n");
-    printf("4. Add Custom Words\n");
-    printf("5. Exit\n");
+    printf("3. Exit\n");
 }
 
 int getMenuChoice() {
@@ -90,16 +88,6 @@ void displayInstructions() {
     printf("   - Green: Correct letter in the correct position\n");
     printf("   - Yellow: Correct letter in the wrong position\n");
     printf(" \n");
-}
-
-void viewPlayedWords() {
- 
-    printf("We've Not Implemented the code yet\n");
-}
-
-void addCustomWords() {
-    // Placeholder for adding custom words
-    printf("We're yet to implement this too \n");
 }
 
 
