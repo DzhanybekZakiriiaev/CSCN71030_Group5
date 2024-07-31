@@ -56,7 +56,8 @@ void displayMenu() {
     printf("\nPlease choose an option from the menu below\n");
     printf("1. View Instructions\n");
     printf("2. Start Game\n");
-    printf("3. Exit\n");
+    printf("3. View a score\n");
+    printf("4. Exit\n");
 }
 
 int getMenuChoice() {

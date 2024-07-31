@@ -13,7 +13,6 @@ int main(void) {
     int choice;
     char* word = loadList(1);
     int score = loadUser("max.txt");
-    printf("%d", score);
     displayWelcomeMessage();
     do {
         displayMenu();
@@ -27,6 +26,9 @@ int main(void) {
             roundGame(word);
             break;
         case 3:
+            printf("Your score is: %d\n", score);
+            break;
+        case 4:
             printf("Exiting the game. Goodbye!\n");
             break;
         default:
