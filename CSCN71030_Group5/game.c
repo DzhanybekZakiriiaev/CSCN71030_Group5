@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "word.h"
+#include "filedata.h"
 
 int roundGame(char* answer) {
     WORD words[GUESSES];
@@ -25,6 +26,8 @@ int roundGame(char* answer) {
 
         if (words[i].isGuessed) {
             printf("Congratulations! You've guessed the word.\n");
+            int score = loadUser("max.txt");
+            saveUser("max.txt",score+1);
             return 1;
         }
     }
